@@ -1,11 +1,5 @@
 import { model, Schema } from "mongoose";
-
-type GuildDocType = {
-  guildID: string;
-  notificationOn: boolean;
-  notificationChannelID: string;
-  excludedChannelIDs: string[];
-};
+import { GuildDocType } from "../types/GuildServiceTypes";
 
 const GuildSchema = new Schema<GuildDocType>({
   guildID: { type: String, required: true, index: true },
