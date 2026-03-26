@@ -2,11 +2,11 @@ import { model, Schema } from "mongoose";
 import { GuildDocType } from "../types/GuildServiceTypes";
 
 const GuildSchema = new Schema<GuildDocType>({
-  guildID: { type: String, required: true, index: true },
+  guildID: { type: String, required: true, index: true, unique: true },
   notificationOn: { type: Boolean, default: false },
   notificationChannelID: { type: String, default: "" },
   excludedChannelIDs: {
-    type: [],
+    type: [String],
     default: [],
     //Added to ensure this doesn't get recklessly long. May be extended in the future
     validate: {
